@@ -1,13 +1,13 @@
 const Client = require('../models/clientModel');
 
 exports.getAllClients = function (req, res, next ) {
-	Client.find( function(err, client) {
+	Client.find( function(err, clients) {
 		if (err) {
-			debug('update error:' + err);
+			console.log('find error:' + err);
 			return next(err);
 		}
 		//On success
-		res.send(client)
+		res.send(clients)
 		// res.render('author_form', { title: 'Update Author', author: author });
 	});
 	
@@ -17,7 +17,7 @@ exports.getClient = function (req, res, next ) {
 	req.sanitize('id').trim();
 	Client.findById(req.params.id, function(err, client) {
 		if (err) {
-			debug('update error:' + err);
+			console.log('update error:' + err);
 			return next(err);
 		}
 		//On success

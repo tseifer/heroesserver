@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 //const cors = require('cors');
 const expressSanitizer = require('express-sanitizer');
 
-
 const dbUri = 'mongodb+srv://tidhar:123tidhar456@cluster0.v9bxr.mongodb.net/myapp1?retryWrites=true&w=majority';
 mongoose.connect(dbUri, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
@@ -21,6 +20,11 @@ db.once('open', function() {
 
 let app = express()
 app.use(expressSanitizer());
+
+app.use('/*', ((req, res, next) => {
+	console.log('kuku ' + JSON.stringify(req.params));
+	next()
+}))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
