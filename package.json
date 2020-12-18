@@ -14,7 +14,10 @@
     "dayjs": "^1.9.5",
     "express": "^4.17.1",
     "express-sanitizer": "^1.0.5",
+    "express-session": "^1.17.1",
     "mongoose": "^5.10.15",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "uuid": "^8.3.1"
   },
   "devDependencies": {

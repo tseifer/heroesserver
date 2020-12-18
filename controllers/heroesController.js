@@ -31,20 +31,15 @@ exports.addHero = async function (req, res, next) {
 	if (!newHero.name)
 	{
 		res.status(400).json({msg: 'Please include name and email'});
-	}
-	else
-	{
-		try
-		{
-			await Hero.create(newHero).exec();
+	} else {
+		try {
+			await Hero.create(newHero);
 		} catch(err) {
 			console.log('create hero error:' + err);
 			return next(err);
 		}
 		return await exports.getAllHeroes(req, res, next)
 	}
-	
-	
 }
 
 exports.deleteHero = async function (req, res, next) {

@@ -424,32 +424,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./client-detail/client-detail.component */
     "./src/app/client-detail/client-detail.component.ts");
+    /* harmony import */
+
+
+    var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./login/login.component */
+    "./src/app/login/login.component.ts");
+    /* harmony import */
+
+
+    var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./services/auth-guard.service */
+    "./src/app/services/auth-guard.service.ts");
 
     var routes = [{
       path: "heroes",
-      component: _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_3__["HeroesListComponent"]
+      component: _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_3__["HeroesListComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "clients",
-      component: _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_7__["ClientsListComponent"]
+      component: _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_7__["ClientsListComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "dashboard",
-      component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"]
+      component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "add-hero",
-      component: _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_5__["AddHeroComponent"]
+      component: _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_5__["AddHeroComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "search-hero",
-      component: _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_6__["SearchHeroComponent"]
+      component: _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_6__["SearchHeroComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "",
       redirectTo: "/dashboard",
-      pathMatch: "full"
+      pathMatch: "full",
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "client-detail/:client-id",
-      component: _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_8__["ClientDetailComponent"]
+      component: _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_8__["ClientDetailComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
     }, {
       path: "hero-detail/:hero-id",
-      component: _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_2__["HeroDetialComponent"]
+      component: _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_2__["HeroDetialComponent"],
+      canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]]
+    }, {
+      path: 'login',
+      component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -804,6 +827,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! ./client-detail/client-detail.component */
     "./src/app/client-detail/client-detail.component.ts");
+    /* harmony import */
+
+
+    var _login_login_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    /*! ./login/login.component */
+    "./src/app/login/login.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -826,7 +855,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetialComponent"], _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_11__["HeroesListComponent"], _massages_messages_component__WEBPACK_IMPORTED_MODULE_12__["MessagesComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"], _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_18__["AddHeroComponent"], _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_20__["SearchHeroComponent"], _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_21__["ClientsListComponent"], _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_22__["ClientDetailComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetialComponent"], _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_11__["HeroesListComponent"], _massages_messages_component__WEBPACK_IMPORTED_MODULE_12__["MessagesComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"], _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_18__["AddHeroComponent"], _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_20__["SearchHeroComponent"], _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_21__["ClientsListComponent"], _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_22__["ClientDetailComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_23__["LoginComponent"]],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButtonModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_15__["MatGridListModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_16__["MatBadgeModule"], // HttpClientInMemoryWebApiModule.forRoot(
         //   InMemoryDataService, {dataEncapsulation: false}
         // ),
@@ -840,7 +869,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetialComponent"], _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_11__["HeroesListComponent"], _massages_messages_component__WEBPACK_IMPORTED_MODULE_12__["MessagesComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"], _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_18__["AddHeroComponent"], _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_20__["SearchHeroComponent"], _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_21__["ClientsListComponent"], _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_22__["ClientDetailComponent"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _hero_detial_hero_detial_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetialComponent"], _heroes_list_heroes_list_component__WEBPACK_IMPORTED_MODULE_11__["HeroesListComponent"], _massages_messages_component__WEBPACK_IMPORTED_MODULE_12__["MessagesComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"], _add_hero_add_hero_component__WEBPACK_IMPORTED_MODULE_18__["AddHeroComponent"], _search_hero_search_hero_component__WEBPACK_IMPORTED_MODULE_20__["SearchHeroComponent"], _clients_list_clients_list_component__WEBPACK_IMPORTED_MODULE_21__["ClientsListComponent"], _client_detail_client_detail_component__WEBPACK_IMPORTED_MODULE_22__["ClientDetailComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_23__["LoginComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButtonModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_15__["MatGridListModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_16__["MatBadgeModule"], // HttpClientInMemoryWebApiModule.forRoot(
           //   InMemoryDataService, {dataEncapsulation: false}
           // ),
@@ -2140,6 +2169,190 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/login/login.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/login/login.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: LoginComponent */
+
+  /***/
+  function srcAppLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
+      return LoginComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../services/auth.service */
+    "./src/app/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
+    var LoginComponent = /*#__PURE__*/function () {
+      function LoginComponent(authService, router) {
+        _classCallCheck(this, LoginComponent);
+
+        this.authService = authService;
+        this.router = router;
+      }
+
+      _createClass(LoginComponent, [{
+        key: "login",
+        value: function login() {
+          var _this11 = this;
+
+          this.authService.validate(this.userEmail, this.userPassword).then(function (response) {
+            _this11.authService.setUserInfo({
+              'user': response['user']
+            });
+
+            _this11.router.navigate(['dashboard']);
+          });
+        }
+      }]);
+
+      return LoginComponent;
+    }();
+
+    LoginComponent.ɵfac = function LoginComponent_Factory(t) {
+      return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+    };
+
+    LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: LoginComponent,
+      selectors: [["app-login"]],
+      decls: 17,
+      vars: 2,
+      consts: [[1, "form-signin"], [1, "h3", "mb-3", "font-weight-normal"], ["for", "inputEmail", 1, "sr-only"], ["type", "email", "name", "userEmail", "id", "inputEmail", "placeholder", "Email address", "required", "", "autofocus", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "inputPassword", 1, "sr-only"], ["type", "password", "name", "userPassword", "id", "inputPassword", "placeholder", "Password", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "checkbox", "mb-3"], ["type", "checkbox", "value", "remember-me"], ["type", "button", 1, "btn", "btn-lg", "btn-primary", "btn-block", 3, "click"], [1, "mt-5", "mb-3", "text-muted"]],
+      template: function LoginComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Please sign in");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "label", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Email address");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function LoginComponent_Template_input_ngModelChange_5_listener($event) {
+            return ctx.userEmail = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "label", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Password");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "input", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function LoginComponent_Template_input_ngModelChange_8_listener($event) {
+            return ctx.userPassword = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "input", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " Remember me ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_13_listener() {
+            return ctx.login();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Sign in");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "p", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "\xA9 2017-2019");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.userEmail);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.userPassword);
+        }
+      },
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"]],
+      styles: ["html[_ngcontent-%COMP%], body[_ngcontent-%COMP%] {\r\n    height: 100%;\r\n}\r\n\r\nbody[_ngcontent-%COMP%] {\r\n    display: flex;\r\n    align-items: center;\r\n    padding-top: 40px;\r\n    padding-bottom: 40px;\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%] {\r\n    width: 100%;\r\n    max-width: 330px;\r\n    padding: 15px;\r\n    margin: auto;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%]   .checkbox[_ngcontent-%COMP%] {\r\n    font-weight: 400;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%]   .form-control[_ngcontent-%COMP%] {\r\n    position: relative;\r\n    box-sizing: border-box;\r\n    height: auto;\r\n    padding: 10px;\r\n    font-size: 16px;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%]   .form-control[_ngcontent-%COMP%]:focus {\r\n    z-index: 2;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%]   input[type=\"email\"][_ngcontent-%COMP%] {\r\n    margin-bottom: -1px;\r\n    border-bottom-right-radius: 0;\r\n    border-bottom-left-radius: 0;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%]   input[type=\"password\"][_ngcontent-%COMP%] {\r\n    margin-bottom: 10px;\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7SUFFSSxZQUFZO0FBQ2hCOztBQUVBO0lBRUksYUFBYTtJQUViLG1CQUFtQjtJQUNuQixpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLHlCQUF5QjtBQUM3Qjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxnQkFBZ0I7SUFDaEIsYUFBYTtJQUNiLFlBQVk7QUFDaEI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsc0JBQXNCO0lBQ3RCLFlBQVk7SUFDWixhQUFhO0lBQ2IsZUFBZTtBQUNuQjs7QUFDQTtJQUNJLFVBQVU7QUFDZDs7QUFDQTtJQUNJLG1CQUFtQjtJQUNuQiw2QkFBNkI7SUFDN0IsNEJBQTRCO0FBQ2hDOztBQUNBO0lBQ0ksbUJBQW1CO0lBQ25CLHlCQUF5QjtJQUN6QiwwQkFBMEI7QUFDOUIiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaHRtbCxcclxuYm9keSB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbmJvZHkge1xyXG4gICAgZGlzcGxheTogLW1zLWZsZXhib3g7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgLW1zLWZsZXgtYWxpZ246IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBwYWRkaW5nLXRvcDogNDBweDtcclxuICAgIHBhZGRpbmctYm90dG9tOiA0MHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y1ZjVmNTtcclxufVxyXG5cclxuLmZvcm0tc2lnbmluIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWF4LXdpZHRoOiAzMzBweDtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbn1cclxuLmZvcm0tc2lnbmluIC5jaGVja2JveCB7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG59XHJcbi5mb3JtLXNpZ25pbiAuZm9ybS1jb250cm9sIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBoZWlnaHQ6IGF1dG87XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG59XHJcbi5mb3JtLXNpZ25pbiAuZm9ybS1jb250cm9sOmZvY3VzIHtcclxuICAgIHotaW5kZXg6IDI7XHJcbn1cclxuLmZvcm0tc2lnbmluIGlucHV0W3R5cGU9XCJlbWFpbFwiXSB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAtMXB4O1xyXG4gICAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDA7XHJcbiAgICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG59XHJcbi5mb3JtLXNpZ25pbiBpbnB1dFt0eXBlPVwicGFzc3dvcmRcIl0ge1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XHJcbiAgICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMDtcclxufVxyXG4iXX0= */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoginComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-login',
+          templateUrl: './login.component.html',
+          styleUrls: ['./login.component.css']
+        }]
+      }], function () {
+        return [{
+          type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/massages/messages.component.ts":
   /*!************************************************!*\
     !*** ./src/app/massages/messages.component.ts ***!
@@ -2470,14 +2683,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.heroes = this.searchTerm.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) {
-            return _this11.heroService.searchHero(term);
+            return _this12.heroService.searchHero(term);
           })); //SAME BUT FOR CLIENTS
 
           this.clients = this.searchTerm.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) {
-            return _this11.clientService.searchClient(term);
+            return _this12.clientService.searchClient(term);
           }));
         }
       }]);
@@ -2601,6 +2814,198 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/services/auth-guard.service.ts":
+  /*!************************************************!*\
+    !*** ./src/app/services/auth-guard.service.ts ***!
+    \************************************************/
+
+  /*! exports provided: AuthGuardService */
+
+  /***/
+  function srcAppServicesAuthGuardServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AuthGuardService", function () {
+      return AuthGuardService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./auth.service */
+    "./src/app/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+    var AuthGuardService = /*#__PURE__*/function () {
+      function AuthGuardService(authService, route) {
+        _classCallCheck(this, AuthGuardService);
+
+        this.authService = authService;
+        this.route = route;
+      }
+
+      _createClass(AuthGuardService, [{
+        key: "canActivate",
+        value: function canActivate() {
+          if (this.authService.isAuthenticated()) {
+            return true;
+          }
+
+          this.route.navigate(['login']);
+          return false;
+        }
+      }]);
+
+      return AuthGuardService;
+    }();
+
+    AuthGuardService.ɵfac = function AuthGuardService_Factory(t) {
+      return new (t || AuthGuardService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+    };
+
+    AuthGuardService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: AuthGuardService,
+      factory: AuthGuardService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AuthGuardService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/services/auth.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/auth.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: AuthService */
+
+  /***/
+  function srcAppServicesAuthServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AuthService", function () {
+      return AuthService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    var AuthService = /*#__PURE__*/function () {
+      function AuthService(http) {
+        _classCallCheck(this, AuthService);
+
+        this.http = http;
+        this.clientUrl = '/api/auth'; // URL to web api
+
+        this.httpOptions = {
+          headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Content-Type': 'application/json'
+          })
+        };
+      }
+
+      _createClass(AuthService, [{
+        key: "isAuthenticated",
+        value: function isAuthenticated() {
+          var userData = localStorage.getItem('userInfo');
+
+          if (userData && JSON.parse(userData)) {
+            return true;
+          }
+
+          return false;
+        }
+      }, {
+        key: "setUserInfo",
+        value: function setUserInfo(user) {
+          localStorage.setItem('userInfo', JSON.stringify(user));
+        }
+      }, {
+        key: "validate",
+        value: function validate(email, password) {
+          return this.http.post(this.clientUrl, {
+            'username': email,
+            'password': password
+          }, this.httpOptions).toPromise();
+        }
+      }]);
+
+      return AuthService;
+    }();
+
+    AuthService.ɵfac = function AuthService_Factory(t) {
+      return new (t || AuthService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
+    };
+
+    AuthService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: AuthService,
+      factory: AuthService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AuthService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
   "./src/app/services/client.service.ts":
   /*!********************************************!*\
     !*** ./src/app/services/client.service.ts ***!
@@ -2649,13 +3054,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _messages_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./messages.service */
     "./src/app/services/messages.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var ClientService = /*#__PURE__*/function () {
-      function ClientService(http, messageService) {
+      function ClientService(http, messageService, route) {
         _classCallCheck(this, ClientService);
 
         this.http = http;
         this.messageService = messageService;
+        this.route = route;
         this.clientUrl = 'http://localhost:5001/api/clients'; // URL to web api
 
         this.httpOptions = {
@@ -2668,12 +3080,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ClientService, [{
         key: "getClients",
         value: function getClients() {
-          var _this12 = this;
+          var _this13 = this;
 
           return this.http.get(this.clientUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (heroes) {
-            return _this12.log("clients fetched");
+            return _this13.log("clients fetched");
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this12.log("Failed" + error.body.error);
+            _this13.log(true && error.error && error.error.message);
+
+            debugger;
+
+            if (error && error.error && error.error.statusCode === 400) {
+              _this13.route.navigate(['login']);
+            }
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])([]);
           }));
@@ -2681,13 +3099,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getClient",
         value: function getClient(id) {
-          var _this13 = this;
+          var _this14 = this;
 
           var url = this.clientUrl + "/".concat(id);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (hero) {
-            return _this13.log("fetched client with id:" + id);
+            return _this14.log("fetched client with id:" + id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this13.log("Failed" + error.body.error);
+            _this14.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -2700,13 +3118,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateClient",
         value: function updateClient(client) {
-          var _this14 = this;
+          var _this15 = this;
 
           var url = this.clientUrl + "/".concat(client._id);
           return this.http.put(url, client, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function () {
-            _this14.log("Updated client with id = ".concat(client._id, " and name = ").concat(client.name));
+            _this15.log("Updated client with id = ".concat(client._id, " and name = ").concat(client.name));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this14.log("Failed" + error.body.error);
+            _this15.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -2717,13 +3135,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addClient",
         value: function addClient(client) {
-          var _this15 = this;
+          var _this16 = this;
 
           var url = this.clientUrl;
           return this.http.post(url, client, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (c) {
-            return _this15.log("added client with name = " + c.name + "new ID = " + c._id);
+            return _this16.log("added client with name = " + c.name + "new ID = " + c._id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this15.log("Failed adding client with name: " + client.name + error.body.error);
+            _this16.log("Failed adding client with name: " + client.name + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -2731,14 +3149,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteClient",
         value: function deleteClient(client) {
-          var _this16 = this;
+          var _this17 = this;
 
           var id = typeof client === "number" ? client : client._id;
           var url = "".concat(this.clientUrl, "/").concat(id);
           return this.http["delete"](url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function () {
-            _this16.log("Deleted hero with named = ".concat(client.name, " ID = ").concat(client._id, "  "));
+            _this17.log("Deleted hero with named = ".concat(client.name, " ID = ").concat(client._id, "  "));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this16.log("Failed" + error.body.error);
+            _this17.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -2746,7 +3164,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchClient",
         value: function searchClient(term) {
-          var _this17 = this;
+          var _this18 = this;
 
           term = term.trim();
 
@@ -2757,9 +3175,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var url = this.clientUrl + "/?name=".concat(term);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (results) {
             if (results.length > 0) {
-              _this17.log("found results");
+              _this18.log("found results");
             } else {
-              _this17.log("didn't find results");
+              _this18.log("didn't find results");
             }
           }));
         }
@@ -2769,7 +3187,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     ClientService.ɵfac = function ClientService_Factory(t) {
-      return new (t || ClientService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]));
+      return new (t || ClientService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]));
     };
 
     ClientService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2790,6 +3208,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
         }, {
           type: _messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
         }];
       }, null);
     })();
@@ -2846,13 +3266,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _messages_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./messages.service */
     "./src/app/services/messages.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var HeroService = /*#__PURE__*/function () {
-      function HeroService(http, messageService) {
+      function HeroService(http, messageService, route) {
         _classCallCheck(this, HeroService);
 
         this.http = http;
         this.messageService = messageService;
+        this.route = route;
         this.heroesUrl = 'http://localhost:5001/api/heroes/'; // URL to web api
 
         this.httpOptions = {
@@ -2865,12 +3292,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HeroService, [{
         key: "getHeroes",
         value: function getHeroes() {
-          var _this18 = this;
+          var _this19 = this;
 
           return this.http.get(this.heroesUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (heroes) {
-            return _this18.log("fetched heroes");
+            return _this19.log("fetched heroes");
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this18.log("Failed" + error.body.error);
+            _this19.log(true && error.error && error.error.message);
+
+            if (error && error.error && error.error.statusCode === 400) {
+              _this19.route.navigate(['login']);
+            }
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([]);
           }));
@@ -2878,13 +3309,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getHero",
         value: function getHero(id) {
-          var _this19 = this;
+          var _this20 = this;
 
           var url = this.heroesUrl + "/".concat(id);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (hero) {
-            return _this19.log("fetched hero with id:" + id);
+            return _this20.log("fetched hero with id:" + id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this19.log("Failed" + error.body.error);
+            _this20.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -2904,13 +3335,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateHero",
         value: function updateHero(hero) {
-          var _this20 = this;
+          var _this21 = this;
 
           var url = this.heroesUrl + "/".concat(hero._id);
           return this.http.put(url, hero, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function () {
-            _this20.log("Updated hero with id = ".concat(hero._id, " and name = ").concat(hero.name));
+            _this21.log("Updated hero with id = ".concat(hero._id, " and name = ").concat(hero.name));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this20.log("Failed" + error.body.error);
+            _this21.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -2921,13 +3352,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addHero",
         value: function addHero(hero) {
-          var _this21 = this;
+          var _this22 = this;
 
           var url = this.heroesUrl;
           return this.http.post(url, hero, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (h) {
-            return _this21.log("added hero with name = " + h.name + "new ID = " + h._id);
+            return _this22.log("added hero with name = " + h.name + "new ID = " + h._id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this21.log("Failed adding hero with name: " + hero.name + error.body.error);
+            _this22.log("Failed adding hero with name: " + hero.name + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -2935,14 +3366,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteHero",
         value: function deleteHero(hero) {
-          var _this22 = this;
+          var _this23 = this;
 
           var id = typeof hero === "number" ? hero : hero._id;
           var url = "".concat(this.heroesUrl, "/").concat(id);
           return this.http["delete"](url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function () {
-            _this22.log("Deleted hero with named = ".concat(hero.name, " ID = ").concat(hero._id, "  "));
+            _this23.log("Deleted hero with named = ".concat(hero.name, " ID = ").concat(hero._id, "  "));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this22.log("Failed" + error.body.error);
+            _this23.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -2950,7 +3381,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchHero",
         value: function searchHero(term) {
-          var _this23 = this;
+          var _this24 = this;
 
           term = term.trim();
 
@@ -2961,12 +3392,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var url = this.heroesUrl + "/?name=".concat(term);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (results) {
             if (results.length > 0) {
-              _this23.log("found results matching ".concat(term));
+              _this24.log("found results matching ".concat(term));
             } else {
-              _this23.log("didn't find results matching ".concat(term));
+              _this24.log("didn't find results matching ".concat(term));
             }
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this23.log("Failed" + error.body.error);
+            _this24.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -2977,7 +3408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     HeroService.ɵfac = function HeroService_Factory(t) {
-      return new (t || HeroService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]));
+      return new (t || HeroService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]));
     };
 
     HeroService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2998,6 +3429,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
         }, {
           type: _messages_service__WEBPACK_IMPORTED_MODULE_4__["MessagesService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
         }];
       }, null);
     })();

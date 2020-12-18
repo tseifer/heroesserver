@@ -5,7 +5,11 @@ const uuid = require('uuid');
 const bodyParser = require('body-parser');
 const heroes = require('./routes/heroes');
 const clients = require('./routes/clients');
+const auth = require('./routes/auth');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+
 
 //const cors = require('cors');
 const expressSanitizer = require('express-sanitizer');
@@ -19,6 +23,10 @@ db.once('open', function() {
 });
 
 let app = express()
+app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(expressSanitizer());
 
 app.use('/*', ((req, res, next) => {
@@ -33,9 +41,19 @@ app.use(bodyParser.json());
 
 app.use(logger);
 
-app.use('/api/heroes', heroes);
-app.use('/api/clients', clients);
+const isLoggedIn = (req, res, next) => {
+	console.log('session ', req.session);
+	if(req.isAuthenticated()){
+		//console.log('user ', req.session.passport.user)
+		return next()
+	}
+	return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
+}
 
+
+app.use('/api/heroes', isLoggedIn, heroes);
+app.use('/api/clients', isLoggedIn, clients);
+app.use('/api/auth', auth);
 
 
 app.use('/', express.static(path.join(__dirname, 'public')));
