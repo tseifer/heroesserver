@@ -2233,6 +2233,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this11.router.navigate(['dashboard']);
           });
         }
+      }, {
+        key: "signup",
+        value: function signup() {
+          var _this12 = this;
+
+          this.authService.signup(this.userEmail, this.userPassword).then(function (response) {
+            //this.authService.setUserInfo({'user' : response['user']});
+            _this12.router.navigate(['login']);
+          });
+        }
       }]);
 
       return LoginComponent;
@@ -2245,7 +2255,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: LoginComponent,
       selectors: [["app-login"]],
-      decls: 17,
+      decls: 19,
       vars: 2,
       consts: [[1, "form-signin"], [1, "h3", "mb-3", "font-weight-normal"], ["for", "inputEmail", 1, "sr-only"], ["type", "email", "name", "userEmail", "id", "inputEmail", "placeholder", "Email address", "required", "", "autofocus", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "inputPassword", 1, "sr-only"], ["type", "password", "name", "userPassword", "id", "inputPassword", "placeholder", "Password", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "checkbox", "mb-3"], ["type", "checkbox", "value", "remember-me"], ["type", "button", 1, "btn", "btn-lg", "btn-primary", "btn-block", 3, "click"], [1, "mt-5", "mb-3", "text-muted"]],
       template: function LoginComponent_Template(rf, ctx) {
@@ -2308,9 +2318,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "p", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "button", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "\xA9 2017-2019");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_15_listener() {
+            return ctx.signup();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Sign UP UGLYYYYYY");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "p", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "\xA9 2017-2019");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -2683,14 +2703,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.heroes = this.searchTerm.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) {
-            return _this12.heroService.searchHero(term);
+            return _this13.heroService.searchHero(term);
           })); //SAME BUT FOR CLIENTS
 
           this.clients = this.searchTerm.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) {
-            return _this12.clientService.searchClient(term);
+            return _this13.clientService.searchClient(term);
           }));
         }
       }]);
@@ -2968,7 +2988,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "validate",
         value: function validate(email, password) {
-          return this.http.post(this.clientUrl, {
+          return this.http.post("".concat(this.clientUrl, "/login"), {
+            'username': email,
+            'password': password
+          }, this.httpOptions).toPromise();
+        }
+      }, {
+        key: "signup",
+        value: function signup(email, password) {
+          return this.http.post("".concat(this.clientUrl, "/signup"), {
             'username': email,
             'password': password
           }, this.httpOptions).toPromise();
@@ -3080,17 +3108,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ClientService, [{
         key: "getClients",
         value: function getClients() {
-          var _this13 = this;
+          var _this14 = this;
 
           return this.http.get(this.clientUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (heroes) {
-            return _this13.log("clients fetched");
+            return _this14.log("clients fetched");
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this13.log(true && error.error && error.error.message);
-
-            debugger;
+            _this14.log(true && error.error && error.error.message);
 
             if (error && error.error && error.error.statusCode === 400) {
-              _this13.route.navigate(['login']);
+              _this14.route.navigate(['login']);
             }
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])([]);
@@ -3099,13 +3125,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getClient",
         value: function getClient(id) {
-          var _this14 = this;
+          var _this15 = this;
 
           var url = this.clientUrl + "/".concat(id);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (hero) {
-            return _this14.log("fetched client with id:" + id);
+            return _this15.log("fetched client with id:" + id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this14.log("Failed" + error.body.error);
+            _this15.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -3118,13 +3144,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateClient",
         value: function updateClient(client) {
-          var _this15 = this;
+          var _this16 = this;
 
           var url = this.clientUrl + "/".concat(client._id);
           return this.http.put(url, client, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function () {
-            _this15.log("Updated client with id = ".concat(client._id, " and name = ").concat(client.name));
+            _this16.log("Updated client with id = ".concat(client._id, " and name = ").concat(client.name));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this15.log("Failed" + error.body.error);
+            _this16.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -3135,13 +3161,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addClient",
         value: function addClient(client) {
-          var _this16 = this;
+          var _this17 = this;
 
           var url = this.clientUrl;
           return this.http.post(url, client, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (c) {
-            return _this16.log("added client with name = " + c.name + "new ID = " + c._id);
+            return _this17.log("added client with name = " + c.name + "new ID = " + c._id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this16.log("Failed adding client with name: " + client.name + error.body.error);
+            _this17.log("Failed adding client with name: " + client.name + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -3149,14 +3175,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteClient",
         value: function deleteClient(client) {
-          var _this17 = this;
+          var _this18 = this;
 
           var id = typeof client === "number" ? client : client._id;
           var url = "".concat(this.clientUrl, "/").concat(id);
           return this.http["delete"](url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function () {
-            _this17.log("Deleted hero with named = ".concat(client.name, " ID = ").concat(client._id, "  "));
+            _this18.log("Deleted hero with named = ".concat(client.name, " ID = ").concat(client._id, "  "));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this17.log("Failed" + error.body.error);
+            _this18.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(undefined);
           }));
@@ -3164,7 +3190,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchClient",
         value: function searchClient(term) {
-          var _this18 = this;
+          var _this19 = this;
 
           term = term.trim();
 
@@ -3175,9 +3201,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var url = this.clientUrl + "/?name=".concat(term);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (results) {
             if (results.length > 0) {
-              _this18.log("found results");
+              _this19.log("found results");
             } else {
-              _this18.log("didn't find results");
+              _this19.log("didn't find results");
             }
           }));
         }
@@ -3292,15 +3318,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HeroService, [{
         key: "getHeroes",
         value: function getHeroes() {
-          var _this19 = this;
+          var _this20 = this;
 
           return this.http.get(this.heroesUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (heroes) {
-            return _this19.log("fetched heroes");
+            return _this20.log("fetched heroes");
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this19.log(true && error.error && error.error.message);
+            _this20.log(true && error.error && error.error.message);
 
             if (error && error.error && error.error.statusCode === 400) {
-              _this19.route.navigate(['login']);
+              _this20.route.navigate(['login']);
             }
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([]);
@@ -3309,13 +3335,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getHero",
         value: function getHero(id) {
-          var _this20 = this;
+          var _this21 = this;
 
           var url = this.heroesUrl + "/".concat(id);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (hero) {
-            return _this20.log("fetched hero with id:" + id);
+            return _this21.log("fetched hero with id:" + id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this20.log("Failed" + error.body.error);
+            _this21.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -3335,13 +3361,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateHero",
         value: function updateHero(hero) {
-          var _this21 = this;
+          var _this22 = this;
 
           var url = this.heroesUrl + "/".concat(hero._id);
           return this.http.put(url, hero, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function () {
-            _this21.log("Updated hero with id = ".concat(hero._id, " and name = ").concat(hero.name));
+            _this22.log("Updated hero with id = ".concat(hero._id, " and name = ").concat(hero.name));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this21.log("Failed" + error.body.error);
+            _this22.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -3352,13 +3378,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addHero",
         value: function addHero(hero) {
-          var _this22 = this;
+          var _this23 = this;
 
           var url = this.heroesUrl;
           return this.http.post(url, hero, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (h) {
-            return _this22.log("added hero with name = " + h.name + "new ID = " + h._id);
+            return _this23.log("added hero with name = " + h.name + "new ID = " + h._id);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this22.log("Failed adding hero with name: " + hero.name + error.body.error);
+            _this23.log("Failed adding hero with name: " + hero.name + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -3366,14 +3392,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteHero",
         value: function deleteHero(hero) {
-          var _this23 = this;
+          var _this24 = this;
 
           var id = typeof hero === "number" ? hero : hero._id;
           var url = "".concat(this.heroesUrl, "/").concat(id);
           return this.http["delete"](url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function () {
-            _this23.log("Deleted hero with named = ".concat(hero.name, " ID = ").concat(hero._id, "  "));
+            _this24.log("Deleted hero with named = ".concat(hero.name, " ID = ").concat(hero._id, "  "));
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this23.log("Failed" + error.body.error);
+            _this24.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -3381,7 +3407,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchHero",
         value: function searchHero(term) {
-          var _this24 = this;
+          var _this25 = this;
 
           term = term.trim();
 
@@ -3392,12 +3418,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var url = this.heroesUrl + "/?name=".concat(term);
           return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (results) {
             if (results.length > 0) {
-              _this24.log("found results matching ".concat(term));
+              _this25.log("found results matching ".concat(term));
             } else {
-              _this24.log("didn't find results matching ".concat(term));
+              _this25.log("didn't find results matching ".concat(term));
             }
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            _this24.log("Failed" + error.body.error);
+            _this25.log("Failed" + error.body.error);
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(undefined);
           }));
@@ -3609,7 +3635,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Users\Tidhar\NetCraft\L48t_0611\tour3\src\main.ts */
+    /*! C:\Users\Tidhar\NetCraft\L48t_0611\tour4\src\main.ts */
     "./src/main.ts");
     /***/
   }
