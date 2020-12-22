@@ -2299,9 +2299,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: LoginComponent,
       selectors: [["app-login"]],
-      decls: 19,
+      decls: 21,
       vars: 2,
-      consts: [[1, "form-signin"], [1, "h3", "mb-3", "font-weight-normal"], ["for", "inputEmail", 1, "sr-only"], ["type", "email", "name", "userEmail", "id", "inputEmail", "placeholder", "Email address", "required", "", "autofocus", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "inputPassword", 1, "sr-only"], ["type", "password", "name", "userPassword", "id", "inputPassword", "placeholder", "Password", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "checkbox", "mb-3"], ["type", "checkbox", "value", "remember-me"], ["type", "button", 1, "btn", "btn-lg", "btn-primary", "btn-block", 3, "click"], [1, "mt-5", "mb-3", "text-muted"]],
+      consts: [[1, "form-signin"], [1, "h3", "mb-3", "font-weight-normal"], ["for", "inputEmail", 1, "sr-only"], ["type", "email", "name", "userEmail", "id", "inputEmail", "placeholder", "Email address", "required", "", "autofocus", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "inputPassword", 1, "sr-only"], ["type", "password", "name", "userPassword", "id", "inputPassword", "placeholder", "Password", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "checkbox", "mb-3"], ["type", "checkbox", "value", "remember-me"], ["type", "button", 1, "btn", "btn-lg", "btn-primary", "btn-block", 3, "click"], ["href", "/api/auth/facebook?returnTo=/dashboard", 1, "btn", "btn-primary"], [1, "mt-5", "mb-3", "text-muted"]],
       template: function LoginComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -2362,19 +2362,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "button", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "a", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_15_listener() {
-            return ctx.signup();
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Sign UP UGLYYYYYY");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "FACEBOOK Login");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "p", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "button", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "\xA9 2017-2019");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginComponent_Template_button_click_17_listener() {
+            return ctx.signup();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Sign UP UGLYYYYYY");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "p", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "\xA9 2017-2019");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3017,7 +3023,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.http = http;
         this.route = route;
-        this.clientUrl = '/api/auth'; // URL to web api
+        this.authUrl = '/api/auth'; // URL to web api
 
         this.httpOptions = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -3046,7 +3052,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 switch (_context2.prev = _context2.next) {
                   case 0:
                     _context2.next = 2;
-                    return this.http.get("".concat(this.clientUrl, "/logout")).toPromise();
+                    return this.http.get("".concat(this.authUrl, "/logout")).toPromise();
 
                   case 2:
                     console.log('tried sending logout to server'); //localStorage.clear();
@@ -3070,7 +3076,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "validate",
         value: function validate(email, password) {
-          return this.http.post("".concat(this.clientUrl, "/login"), {
+          return this.http.post("".concat(this.authUrl, "/login"), {
             'username': email,
             'password': password
           }, this.httpOptions).toPromise();
@@ -3078,7 +3084,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "signup",
         value: function signup(email, password) {
-          return this.http.post("".concat(this.clientUrl, "/signup"), {
+          return this.http.post("".concat(this.authUrl, "/signup"), {
             'username': email,
             'password': password
           }, this.httpOptions).toPromise();
