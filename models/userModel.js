@@ -14,13 +14,13 @@ var UserSchema = new Schema(
 UserSchema.methods.generateHash = function(password) {
 	//return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 	return bcrypt.hash(password, saltRounds).then((hashed) => {
-		console.log("Hashed password: " + hashedPass);
+		console.log("Hashed password: " + hashed);
 		return hashed;
 	});
 };
 
 // checking if password is valid
-UserSchema.methods.validPassword = function(password) {
+UserSchema.methods.validatePassword = function(password) {
 	return bcrypt.compare(password, this.password).then(function(result) {
 		console.log("Hashed password comparison: " + result);
 		return result;
