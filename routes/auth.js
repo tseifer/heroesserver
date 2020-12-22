@@ -120,6 +120,12 @@ const isLoggedIn = (req, res, next) => {
 	return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
 }
 
+// api/auth/logout
+router.get('/logout', (req, res) => {
+	console.log('performing logout')
+	req.logout();
+	res.status(200).json({"statusCode" : 200 });
+});
 
 //module.exports = router
 module.exports = {router: router, isLoggedIn: isLoggedIn}
