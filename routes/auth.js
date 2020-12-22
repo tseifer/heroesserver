@@ -38,7 +38,7 @@ const auth = () => {
 }
 
 // api/auth
-router.post('/', auth() , (req, res) => {
+router.post('/login', auth() , (req, res) => {
 	res.status(200).json({"statusCode" : 200 ,"user" : req.user});
 });
 
@@ -46,6 +46,15 @@ router.post('/', auth() , (req, res) => {
 
 
 
+const isLoggedIn = (req, res, next) => {
+	console.log('session ', req.session);
+	if(req.isAuthenticated()){
+		//console.log('user ', req.session.passport.user)
+		return next()
+	}
+	return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
+}
 
 
-module.exports = router
+//module.exports = router
+module.exports = {router: router, isLoggedIn: isLoggedIn}

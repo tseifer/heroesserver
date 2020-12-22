@@ -29,10 +29,6 @@ app.use(passport.session());
 
 app.use(expressSanitizer());
 
-app.use('/*', ((req, res, next) => {
-	console.log('kuku ' + JSON.stringify(req.params));
-	next()
-}))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -41,19 +37,19 @@ app.use(bodyParser.json());
 
 app.use(logger);
 
-const isLoggedIn = (req, res, next) => {
-	console.log('session ', req.session);
-	if(req.isAuthenticated()){
-		//console.log('user ', req.session.passport.user)
-		return next()
-	}
-	return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
-}
+// const isLoggedIn = (req, res, next) => {
+// 	console.log('session ', req.session);
+// 	if(req.isAuthenticated()){
+// 		//console.log('user ', req.session.passport.user)
+// 		return next()
+// 	}
+// 	return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
+// }
 
 
-app.use('/api/heroes', isLoggedIn, heroes);
-app.use('/api/clients', isLoggedIn, clients);
-app.use('/api/auth', auth);
+app.use('/api/heroes', auth.isLoggedIn, heroes);
+app.use('/api/clients', auth.isLoggedIn, clients);
+app.use('/api/auth', auth.router);
 
 
 app.use('/', express.static(path.join(__dirname, 'public')));
